@@ -1,0 +1,37 @@
+﻿@model Survey.Models.QuestionOption
+@{
+    ViewBag.Title = "UpdateOpScreen";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+<div id="content">
+    <div id="content-header">
+        <br />
+        <h1>Güncelleme Sayfası</h1>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Anket Şıkkı Düzenleme Sayfası</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/Admin/UpdateOpScreen" method="post" class="form-horizontal">
+                            <input type="hidden" name="id" value="@Model.id" />
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="QuesOption" id="QuesOption" maxlength="250" required
+                                       value="@Model.QuesOption">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

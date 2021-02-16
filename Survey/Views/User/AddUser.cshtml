@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <br />
+        <h1>Ekleme Sayfası</h1>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Kullanıcı Ekleme Sayfası</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/User/AddUser" class="form-horizontal">
+                            <input type="hidden" name="AddUser" value="" />
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="user_name" id="user_name" maxlength="250" required
+                                       placeholder="Kullanıcı Adı Giriniz"><br />
+                                <input type="password" class="form-control" name="user_pass" id="user_pass" maxlength="250" required
+                                       placeholder="Şifre Giriniz">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

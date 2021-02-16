@@ -1,0 +1,21 @@
+﻿@model Survey.Models.Question
+@{
+
+}
+
+
+<div class="card">
+    <div class="card-body">
+
+        <form action="/Home/AddQues">
+            <div class="form-group">
+                <input type="hidden" name="QuestionOptionID" value="" />
+                <label for="input-1">Soruyu Giriniz</label> <br />
+                <input type="text" class="form-control" name="QuestionLine" id="input-1" placeholder="Soruyu Giriniz" maxlength="250" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-round btn-success shadow-success px-5">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>

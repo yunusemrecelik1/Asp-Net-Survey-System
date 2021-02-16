@@ -1,0 +1,129 @@
+﻿@model IList<Survey.Models.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<div id="content">
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <h5>Kullanıcılar Tablosu</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Admin mi</th>
+                                    <th>İşlemler</th>
+                                    <th>Yetki ver</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="odd gradeX">
+                                        <td>@item.user_name</td>
+                                        <td>@item.isAdmin</td>
+                                        @if (item.isAdmin)
+                                        {
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <a class="btn btn-info" href="/User/UserUpdate/@item.id">Güncelle</a>
+
+
+                                                <a class="btn btn-danger" onclick="DeleteUser(@item.id)">Sil</a>
+                                                <script>
+                                                    function DeleteUser(id) {
+                                                        var link = "/User/DeleteUser/" + id;
+                                                        jQuery("#DeleteUser").attr("href", link);
+                                                        jQuery("#deleteUser").modal()
+                                                    }
+                                                </script>
+                                            </td>
+                                        }
+
+
+                                        @if (item.isAdmin)
+                                        {
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <a class="btn btn-info" onclick="AuthAdmin(@item.id)">Admin Yap</a>
+                                                <script>
+                                                    function AuthAdmin(id) {
+                                                        var link = "/User/AuthAdmin/" + id;
+                                                        jQuery("#modalLink1").attr("href", link);
+                                                        jQuery("#authadmin").modal()
+                                                    }
+                                                </script>
+                                            </td>
+
+                                        }
+
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                            <tr>
+                                <td>
+                                    <a class="btn btn-success" href="/User/AddUser">Yeni Kullanıcı Ekle</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteUser">
+    <div class="modal-dialog">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white"><i class="fa fa-star"></i> Kullanıcı Silme</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <p>Kullanıcı silenecektir emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Kapat</button>
+                <a class="btn btn-danger" id="DeleteUser"><i class="fa fa-check-square-o"></i> Sil</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="authadmin">
+    <div class="modal-dialog">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white"><i class="fa fa-star"></i> Admin Yetkisi </h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <p>Admin yapılacak emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Kapat</button>
+                <a class="btn btn-info" id="modalLink1"><i class="fa fa-check-square-o"></i> Evet</a>
+            </div>
+        </div>
+    </div>
+</div>

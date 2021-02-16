@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Survey.Models.QuestionOption>
+@{
+    ViewBag.Title = "AddOption";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+<div id="content">
+    <div id="content-header">
+        <br />
+        <h1>Anket Ekle</h1>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Soru Ekle</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/Admin/AddOption" method="post" class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">Şıkkı Giriniz </label>
+                                <div class="controls">
+                                    <input type="hidden" name="QuestionOptionID" value="@ViewBag.yolla" />
+                                    <input type="text" class="span11" name="QuesOption" id="input-1" placeholder="Şıkkı Giriniz" maxlength="250" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="span12">
+        <div class="widget-box">
+            <div class="widget-content nopadding">
+                <table id="example" class="table table-bordered data-table" cellpadding="0" style="width:100%;">
+                    <thead>
+                        <b> Şıklar </b>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (ViewBag.yolla == item.QuestionOptionID)
+                            {
+                                <tr class="gradeA">
+                                    <td>@item.QuesOption</td>
+                                </tr>
+                            }
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

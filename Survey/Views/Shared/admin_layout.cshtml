@@ -1,0 +1,75 @@
+﻿@using Survey.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Matrix Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Assest/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Assest/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="/Assest/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/Assest/css/matrix-style.css" />
+    <link rel="stylesheet" href="/Assest/css/matrix-media.css" />
+    <link href="/Assest/font-awesome/css//Assest/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Assest/css/jquery.gritter.css" />
+    <link href='http:///Assest/fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    @Styles.Render("~/Assets/")
+    @Scripts.Render("~/Assests/")
+</head>
+<body>
+    <!--Header-part-->
+    <div>
+        <h1></h1>
+    </div>
+    <br />
+    <!--close-Header-part-->
+    <!--sidebar-menu-->
+    <div id="sidebar">
+        <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul>
+
+            <li class='@Html.IsActive("Admin", "Index")'>@Html.ActionLink("Anketler", "Index", "Admin") </li>
+            <li class='@Html.IsActive("User", "Index")'>@Html.ActionLink("Kullanıcılar", "Index", "User")</li>
+        </ul>
+    </div>
+    <!--sidebar-menu-->
+    <!--main-container-part-->
+    @RenderBody()
+
+    <!--Footer-part-->
+    <!--end-Footer-part-->
+    <script src="/Assest/js/excanvas.min.js"></script>
+    <script src="/Assest/js/jquery.dataTables.min.js"></script>
+    <script src="/Assest/js/jquery.min.js"></script>
+    <script src="/Assest/js/jquery.ui.custom.js"></script>
+    <script src="/Assest/js/bootstrap.min.js"></script>
+    <script src="/Assest/js/jquery.flot.min.js"></script>
+    <script src="/Assest/js/jquery.flot.resize.min.js"></script>
+    <script src="/Assest/js/jquery.peity.min.js"></script>
+    <script src="/Assest/js/fullcalendar.min./js"></script>
+    <script src="/Assest/js/matrix.js"></script>
+    <script src="/Assest/js/matrix.dashboard.js"></script>
+    <script src="/Assest/js/jquery.gritter.min.js"></script>
+    <script src="/Assest/js/matrix.interface.js"></script>
+    <script src="/Assest/js/matrix.chat.js"></script>
+    <script src="/Assest/js/jquery.validate.js"></script>
+    <script src="/Assest/js/matrix.form_validation.js"></script>
+    <script src="/Assest/js/jquery.wizard.js"></script>
+    <script src="/Assest/js/jquery.uniform.js"></script>
+    <script src="/Assest/js/select2.min.js"></script>
+    <script src="/Assest/js/matrix.popover.js"></script>
+    <script src="/Assest/js/jquery.dataTables.min.js"></script>
+    <script src="/Assest/js/matrix.tables.js"></script>
+    <script src="/Assest/js/jquery.min.js"></script>
+    <script src="/Assest/js/jquery.ui.custom.js"></script>
+    <script src="/Assest/js/bootstrap.min.js"></script>
+    <script src="/Assest/js/jquery.uniform.js"></script>
+    <script src="/Assest/js/select2.min.js"></script>
+    <script src="/Assest/js/jquery.dataTables.min.js"></script>
+    <script src="/Assest/js/matrix.js"></script>
+    <script src="/Assest/js/matrix.tables.js"></script>
+    @Scripts.Render("~/Assets/")
+    @Scripts.Render("~/Assets/")
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Survey.Models.Question>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <br />
+        <h1>Anketler</h1>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+
+                                <tr>
+                                    <th>Anket Soruları</th>
+                                    <th>Soruyu Soran</th>
+                                    <th>Şıklar</th>
+                                    <th>Soru İşlemleri</th>
+                                    
+
+                                </tr>
+                            </thead>
+                            @foreach (var item in Model)
+                            {
+
+                                <tbody>
+
+                                    <tr class="gradeA">
+                                        <td>@item.QuestionLine</td>
+                                        <td>@item.CreateBy</td>
+                                        <td>
+                                            <a class="btn btn-mini btn-primary" href="/Admin/OptionScreen/@item.id">Şıkları görmek için tıkla</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-mini btn-info" href="/Admin/UpdateScreen/@item.id">Güncelle</a>
+                                            <a class="btn btn-mini btn-danger" onclick="Delete(@item.id)">Sil</a>
+                                            <script>
+                                                function Delete(id) {
+                                                    var link = "/Admin/Delete/" + id;
+                                                    jQuery("#modalLink").attr("href", link);
+                                                    jQuery("#deletequestion").modal()
+                                                }
+                                            </script>
+                                        </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            }
+
+                        </table>
+                        <a class="btn btn-xs btn-success" href="/Admin/AddQuestion">Soru Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deletequestion">
+    <div class="modal-dialog">
+        <div class="modal-content border-danger">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white"><i class="fa fa-star"></i> Soru Silme</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <p>Soru silinecektir emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Kapat</button>
+                <a class="btn btn-danger" id="modalLink"><i class="fa fa-check-square-o"></i> Sil</a>
+            </div>
+        </div>
+    </div>
+</div>

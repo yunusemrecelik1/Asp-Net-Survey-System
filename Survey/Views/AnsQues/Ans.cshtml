@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Survey.Models.QuestionOption>
+@{
+    ViewBag.Title = "Ans";
+    int counter = 1;
+    int perr;
+}
+<head>
+    <link rel="stylesheet" href="/Assest/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Assest/css/bootstrap-responsive.min.css" />
+</head>
+<div class="form-group">
+    <form action="/AnsQues/Ans" method="post">
+        @foreach (var item in Model)
+        {
+            @item.QuesOption <input type="radio" name="id" value="@item.id"> <br />
+        }
+        <input type="submit" onclick="myFunction()" value="Seç">
+        <br><br>
+
+
+
+    </form>
+    <script>
+        function myFunction() {
+            var id = document.forms[0];
+            var txt;
+            var i;
+            for (i = 0; i < id.length; i++) {
+                if (id[i].checked) {
+                    txt = id[i].value;
+                }
+            }
+        }
+    </script>
+
+</div>
+
+
+
+<div class="col-lg-6 col-xl-6">
+    @foreach (var item in Model)
+    {
+
+        double a = Convert.ToDouble(item.Total);
+        double b = Convert.ToDouble(ViewBag.gonder);
+        double per = (a / b) * 100;
+        if (double.IsNaN(per))
+        {
+            perr = 0;
+        }
+        else
+        {
+            perr = Convert.ToInt16(per);
+        }
+
+        <p>
+            <i class="flag-icon flag-icon-us mr-1"></i>%@perr
+            <span class="float-right">@item.QuesOption</span>
+        </p>
+
+        if (counter % 3 == 0)
+        {
+            <div class="progress">
+                <div class="bar bar-success" style="width: @perr%;"></div>
+            </div>
+
+        }
+        else if (counter % 3 == 1)
+        {
+            <div class="progress">
+                <div class="bar bar-info" style="width: @perr%;"></div>
+            </div>
+        }
+        else
+        {
+            <div class="progress">
+                <div class="bar bar-warning" style="width: @perr%;"></div>
+            </div>
+        }
+        <div>Aldığı oy : @item.Total</div> <br /><br />
+        counter++;
+    }
+</div>
+

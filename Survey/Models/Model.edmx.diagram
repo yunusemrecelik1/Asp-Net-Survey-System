@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d928f2aa53f42979e7a71c759655e81" Name="Diagram1">
+        <EntityTypeShape EntityType="SurveySystemModel.sysdiagrams" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SurveySystemModel.User" Width="1.5" PointX="4.5" PointY="0.5" />
+        <EntityTypeShape EntityType="SurveySystemModel.Question" Width="1.5" PointX="9" PointY="0.5" />
+        <EntityTypeShape EntityType="SurveySystemModel.QuestionOption" Width="1.5" PointX="6" PointY="4.125" />
+        <EntityTypeShape EntityType="SurveySystemModel.User_Vote" Width="1.5" PointX="6.625" PointY="0.5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

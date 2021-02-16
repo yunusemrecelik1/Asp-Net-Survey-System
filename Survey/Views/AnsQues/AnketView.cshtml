@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Survey.Models.Question>
+@{
+    ViewBag.Title = "AnketView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Sorular</th>
+                                    <th>Sonuçlar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var i in Model)
+                                {
+                                        <tr class="odd gradeX">
+                                            <td>@i.QuestionLine</td>
+                                            <td>
+                                                <a class="btn btn-round btn-success shadow-success px-5" href="/AnsQues/AnsView/@i.id"> Anket Sonuçlarını görmek için tıkla</a>
+                                            </td>
+
+                                        </tr>
+                                  
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,38 @@
+﻿@model Survey.Models.Question
+@{
+    ViewBag.Title = "UpdateScreen";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+<div id="content">
+    <div id="content-header">
+        <br />
+        <h1>Güncelleme Sayfası</h1>
+    </div>
+    <div class="container-fluid">
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>Anket Düzenleme Sayfası</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/Admin/UpdateScreen" method="post" class="form-horizontal">
+                            <input type="hidden" name="id" value="@Model.id" />
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="QuestionLine" id="QuestionLine" maxlength="250" required
+                                       value="@Model.QuestionLine">
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
